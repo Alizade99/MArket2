@@ -12,12 +12,12 @@ namespace Market.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AboutU
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        public string title { get; set; }
-        public string Description { get; set; }
-        public string AboutImage { get; set; }
-        public string Iconimg { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -17,7 +17,8 @@ namespace Market.Areas.MarketAdmin
             context.MapRoute(
                 "MarketAdmin_default",
                 "MarketAdmin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new string[] { "Market.Areas.MarketAdmin.Controllers"}
             );
         }
     }

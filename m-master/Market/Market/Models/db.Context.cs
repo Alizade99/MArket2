@@ -13,10 +13,10 @@ namespace Market.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MarketEntities : DbContext
+    public partial class MarketEntities1 : DbContext
     {
-        public MarketEntities()
-            : base("name=MarketEntities")
+        public MarketEntities1()
+            : base("name=MarketEntities1")
         {
         }
     
@@ -30,7 +30,9 @@ namespace Market.Models
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductOption> ProductOptions { get; set; }
         public virtual DbSet<Slideimg> Slideimgs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

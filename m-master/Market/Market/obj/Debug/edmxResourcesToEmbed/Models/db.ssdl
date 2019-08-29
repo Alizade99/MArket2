@@ -5,9 +5,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="title" Type="nvarchar" MaxLength="50" />
-    <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="AboutImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AboutImage" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Iconimg" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>
@@ -43,7 +44,16 @@
     <Property Name="Time" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Discount_price" Type="float" Nullable="false" />
-    <Property Name="iconimg" Type="nvarchar" MaxLength="250" />
+    <Property Name="iconimg" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="amount" Type="float" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Slideimg">
     <Key>
@@ -51,6 +61,16 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Slide" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -61,13 +81,31 @@
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK_ProductOptions_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductOptions" Type="Self.ProductOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductOptions">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MarketModelStoreContainer">
     <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductOptions" EntityType="Self.ProductOptions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Slideimg" EntityType="Self.Slideimg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ProductOptions_Product" Association="Self.FK_ProductOptions_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductOptions" EntitySet="ProductOptions" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

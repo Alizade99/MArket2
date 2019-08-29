@@ -1,6 +1,5 @@
 ﻿using Market.Models;
 using System;
-using Market.ViewModel.Default;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +10,20 @@ namespace Market.Controllers
 {
     public class HomeController : Controller
     {
-        MarketEntities db = new MarketEntities();
+        MarketEntities1 db = new MarketEntities1();
 
         public ActionResult Index()
         {
-            var defaultModel = new DefaultViewModel()
-            {
-                Brand=db.Brands.First(),
-                AboutU=db.AboutUs.First(),
-
-            }
+            ViewBag.Product = db.Products.First();
+            return View();
+        }
+        public ActionResult About()
+        {
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+    }
+}

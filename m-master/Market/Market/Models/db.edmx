@@ -10,9 +10,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="AboutImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AboutImage" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Iconimg" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -48,7 +49,16 @@
           <Property Name="Time" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Discount_price" Type="float" Nullable="false" />
-          <Property Name="iconimg" Type="nvarchar" MaxLength="250" />
+          <Property Name="iconimg" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Slideimg">
           <Key>
@@ -56,6 +66,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Slide" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -66,14 +86,32 @@
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_ProductOptions_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductOptions" Type="Self.ProductOptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOptions">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MarketModelStoreContainer">
           <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductOptions" EntityType="Self.ProductOptions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slideimg" EntityType="Self.Slideimg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ProductOptions_Product" Association="Self.FK_ProductOptions_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductOptions" EntitySet="ProductOptions" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -85,9 +123,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AboutImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AboutImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Iconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -123,7 +162,18 @@
           <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Discount_price" Type="Double" Nullable="false" />
-          <Property Name="iconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="iconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amount" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ProductOptions" Relationship="Self.FK_ProductOptions_Product" FromRole="Product" ToRole="ProductOptions" />
+        </EntityType>
+        <EntityType Name="ProductOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductOptions_Product" FromRole="ProductOptions" ToRole="Product" />
         </EntityType>
         <EntityType Name="Slideimg">
           <Key>
@@ -131,6 +181,16 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Slide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -141,21 +201,39 @@
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="MarketEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_ProductOptions_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductOptions" Type="Self.ProductOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductOptions">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MarketEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AboutUs" EntityType="Self.AboutU" />
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Brands" EntityType="Self.Brand" />
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
           <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductOptions" EntityType="Self.ProductOption" />
           <EntitySet Name="Slideimgs" EntityType="Self.Slideimg" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_ProductOptions_Product" Association="Self.FK_ProductOptions_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductOptions" EntitySet="ProductOptions" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MarketModelStoreContainer" CdmEntityContainer="MarketEntities">
+        <EntityContainerMapping StorageEntityContainer="MarketModelStoreContainer" CdmEntityContainer="MarketEntities1">
           <EntitySetMapping Name="AboutUs">
             <EntityTypeMapping TypeName="MarketModel.AboutU">
               <MappingFragment StoreEntitySet="AboutUs">
@@ -163,6 +241,7 @@
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="AboutImage" ColumnName="AboutImage" />
+                <ScalarProperty Name="Iconimg" ColumnName="Iconimg" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -203,6 +282,16 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Discount_price" ColumnName="Discount_price" />
                 <ScalarProperty Name="iconimg" ColumnName="iconimg" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductOptions">
+            <EntityTypeMapping TypeName="MarketModel.ProductOption">
+              <MappingFragment StoreEntitySet="ProductOptions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -211,6 +300,17 @@
               <MappingFragment StoreEntitySet="Slideimg">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Slide" ColumnName="Slide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MarketModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,17 +1,52 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<section id="Contact">
+    <div class="container">
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="question">
+                    <h4><b>Bizə Sualınız</b></h4>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+                            <br>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="11"
+                                      placeholder="Message"></textarea>
+                        </div>
+                        <button type="button" class="btn question-btn"><h6>Mesaj Göndər</h6></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 offset-md-3 offset-sm-0 offset-0">
+                <h5 style="padding-left: 36px"><b>Əlaqə</b></h5>
+                <div class="footer-contact quiz-info">
+
+                    <ul class="">
+
+                        <li class="pb-4">
+                            <span class="contact-title"><i class="fas fa-phone-alt"></i> Telefon:</span><br>
+                            <span>+994 (77) 440-34-84;</span><br>
+                        </li>
+                        <li class="pb-4">
+                            <span class="contact-title"><i class="fas fa-envelope"></i> Email:</span><br>
+                            <span><a class="emailcolor" href="#">market.az</a></span>
+                        </li>
+
+                        <li class="pb-4">
+                            <span class="contact-title"><i class="fas fa-map-marker-alt"></i> Ünvan:</span><br>
+                            <span>Bakı</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -8,9 +8,13 @@ namespace Market.Areas.MarketAdmin.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: MarketAdmin/Home
+        // GET: Admin/Home
         public ActionResult Index()
         {
+            if (Session["AdminLogged"] == null)
+            {
+                return RedirectToAction("Login", "AdminAccount");
+            }
             return View();
         }
     }

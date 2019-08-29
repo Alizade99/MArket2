@@ -1,9 +1,8 @@
-﻿@using Market.Models;
-@{ 
-    ViewBag.Title = "Home Page";
+﻿@using Market.Models
+@{
+    ViewBag.Title = "Index";
 }
-@*@{ Product pro=ViewBag.Product}*@
-<!--Markets-->
+@{Product pro = ViewBag.Product}
 <div class="market">
     <div class="container">
         <div class="row">
@@ -31,7 +30,7 @@
                         <div class="row">
                             <div class="col-md-3 ">
                                 <div class="item">
-                                    <h5 style="margin-left: 25px;  margin-top: 5px;"><dfn class="ml-4">Quvvededir:</dfn></h5><p style="margin-left: 70px;">19.09.19</p>
+                                    <h5 style="margin-left: 25px;  margin-top: 5px;"><dfn class="ml-4">Quvvededir:</dfn></h5><p style="margin-left: 70px;">@pro.Date</p>
                                     <img src="Fhoto/endirim.png" style="width: 40px;height:40px;position: absolute;
                             margin-left: 165px;margin-top: -73px;">
                                     <div class="eye-icon">
@@ -39,10 +38,10 @@
                                     </div>
 
                                     <td><img src="Fhoto/food1.jpg"></td>
-                                    <h5>@ViewBag.Product.Name</h5>
+                                    <h5>@pro.Name</h5>
                                     <div class="row">
-                                        <span class="mr-2"><del style="color: grey;font-size: 18px; font-weight: 200;">@ViewBag.Product.Price</del></span>
-                                        <span style=" color: #ff5c00; font-size: 18px;font-weight: 500;">@ViewBag.Product.Discount_price</span>
+                                        <span class="mr-2"><del style="color: grey;font-size: 18px; font-weight: 200;">@pro.Price</del></span>
+                                        <span style=" color: #ff5c00; font-size: 18px;font-weight: 500;">@pro.Discount_price</span>
                                     </div>
                                     <div class="eyecontent ml-4 mt-4">
                                         <a href="#"><span class="mr-4">Sifaris et</span><i class="fas fa-heart fa-2x" style="font-size: 30px;"></i></a>
@@ -158,3 +157,5 @@
         </div>
     </div>
 </section>
+
+

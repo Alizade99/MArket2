@@ -131,6 +131,7 @@
     <Compile Include="Areas\MarketAdmin\Controllers\HomeController.cs" />
     <Compile Include="Areas\MarketAdmin\MarketAdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarketEntities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,7 +165,13 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductOption.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Slideimg.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -561,13 +568,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\db.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>db.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\db.edmx.diagram">
-      <DependentUpon>db.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\MarketAdmin\Views\web.config" />
     <Content Include="Areas\MarketAdmin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\MarketAdmin\vendor\fonts\circular-std\CircularStd-Black.woff" />
@@ -582,6 +582,16 @@
     <Content Include="Areas\MarketAdmin\vendor\fonts\themify-icons\fonts\themify.woff" />
     <Content Include="Areas\MarketAdmin\vendor\fonts\themify-icons\fonts\themify9f249f24.eot" />
     <Content Include="Areas\MarketAdmin\vendor\fonts\themify-icons\fonts\themifyd41dd41d.eot" />
+    <EntityDeploy Include="Models\db.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>db.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\db.edmx.diagram">
+      <DependentUpon>db.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\MarketAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\MarketAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\MarketAdmin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -611,7 +621,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\MarketAdmin\Models\" />
-    <Folder Include="Areas\MarketAdmin\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

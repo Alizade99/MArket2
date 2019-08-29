@@ -12,12 +12,11 @@ namespace Market.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AboutU
+    public partial class ProductOption
     {
         public int Id { get; set; }
-        public string title { get; set; }
-        public string Description { get; set; }
-        public string AboutImage { get; set; }
-        public string Iconimg { get; set; }
+        public int ProductId { get; set; }
+    
+        public virtual Product Product { get; set; }
     }
 }
