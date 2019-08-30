@@ -27,35 +27,11 @@ $(".prebtn").on("click",function(){
 
     if(pos==-1){
         pos=$(".brands li").children().length-3;
-        // var brandClone=$(".brands li").clone().prependTo(".brands");
-        // brandClone.addClass("clone")
+    
     }
     $(".brands li").css({
         top:-(liheight)*pos+'px'
     })
   
    })
-//    $('owl-carusel').owlCarousel({
-//        loop:true,
-//        autoplay:true,
-//        margin:10,
-//        nav:true,
-//        item:9,
-//        loop:true,
-//        margin:10,
-//        autoplaySpeed:500,
-//        autoplayHoverPause:true,
-//        responsive:{
-//            0:{
-//                items:1
-//            },
-//            600:{
-//                items:3
-//            },
-//            1000:{
-//                items:5,
-//                loop:true,
-//                autoplay:true,
-//            }}}
-       
-//    )
+//

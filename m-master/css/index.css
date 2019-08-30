@@ -78,32 +78,24 @@ body {
             font-size: 20px;
             color: #33444c; }
              
-            .top-right .page {
+            /* .top-right .page {
               width: 23px;
-              border-radius: 7px; }
+              border-radius: 7px; } */
 
-            .header-cart {
-    border: 2px solid #aebcc3;
-    border-radius: 39px;
-    margin-top: 10px;
-    color: #33444c;
-    width: 175px;
-    height: 40px;
-    position: relative;
-    right: 30px;  }
             
             .header-cart .icofont-cart {
     background: #ff0707;
     color: #fff;
+    margin-top: 10px;
     border-radius: 18px;
     font-size: 20px;
-    height: 36px;
-    width: 40px;
+    width: 42px;
     text-align: center;
-    display: block;
-    line-height: 37px; 
-    transition: .4s;}
-            
+    line-height: 37px;
+    transition: .4s;
+    margin: 2px;
+ }
+    
             .header-cart .icofont-cart:hover {         
               transform: rotate(-360deg);
              }
@@ -126,7 +118,6 @@ body {
 
 
     .market-header {
-        background: white;;
         position: relative;
         z-index: 9999;
         padding: 20px 0px;

@@ -17,3 +17,8 @@ function myFunction() {
       }
     }
   }
+
+  $(document).ready(function(){
+    $('.icofont-cart').click(function(){
+      $('.yer').slideToggle();
+    })});
