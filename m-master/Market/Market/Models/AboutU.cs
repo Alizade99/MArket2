@@ -18,6 +18,6 @@ namespace Market.Models
         public string title { get; set; }
         public string Description { get; set; }
         public string AboutImage { get; set; }
-        public string Iconimg { get; set; }
+        public string İconimg { get; set; }
     }
 }

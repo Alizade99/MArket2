@@ -10,7 +10,7 @@ namespace Market.Controllers
 {
     public class HomeController : Controller
     {
-        MarketEntities1 db = new MarketEntities1();
+        MarketEntities db = new MarketEntities();
 
         public ActionResult Index()
         {

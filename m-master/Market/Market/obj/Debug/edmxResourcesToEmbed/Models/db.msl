@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MarketModelStoreContainer" CdmEntityContainer="MarketEntities1">
+  <EntityContainerMapping StorageEntityContainer="MarketModelStoreContainer" CdmEntityContainer="MarketEntities">
     <EntitySetMapping Name="AboutUs">
-      <EntityTypeMapping TypeName="MarketModel.AboutU">
+      <EntityTypeMapping TypeName="MarketModel.AboutUs">
         <MappingFragment StoreEntitySet="AboutUs">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="AboutImage" ColumnName="AboutImage" />
-          <ScalarProperty Name="Iconimg" ColumnName="Iconimg" />
+          <ScalarProperty Name="İconimg" ColumnName="İconimg" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Admins">
+    <EntitySetMapping Name="Admin">
       <EntityTypeMapping TypeName="MarketModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -22,14 +22,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Brands">
-      <EntityTypeMapping TypeName="MarketModel.Brand">
+      <EntityTypeMapping TypeName="MarketModel.Brands">
         <MappingFragment StoreEntitySet="Brands">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="brandimg" ColumnName="brandimg" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Contacts">
+    <EntitySetMapping Name="Contact">
       <EntityTypeMapping TypeName="MarketModel.Contact">
         <MappingFragment StoreEntitySet="Contact">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -39,7 +39,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
+    <EntitySetMapping Name="Product">
       <EntityTypeMapping TypeName="MarketModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -48,21 +48,13 @@
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Discount_price" ColumnName="Discount_price" />
-          <ScalarProperty Name="iconimg" ColumnName="iconimg" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="İconimg" ColumnName="İconimg" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Date" ColumnName="Date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProductOptions">
-      <EntityTypeMapping TypeName="MarketModel.ProductOption">
-        <MappingFragment StoreEntitySet="ProductOptions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Slideimgs">
+    <EntitySetMapping Name="Slideimg">
       <EntityTypeMapping TypeName="MarketModel.Slideimg">
         <MappingFragment StoreEntitySet="Slideimg">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -70,8 +62,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SubCategory">
+      <EntityTypeMapping TypeName="MarketModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="İd" ColumnName="İd" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="productİd" ColumnName="productİd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="MarketModel.sysdiagram">
+      <EntityTypeMapping TypeName="MarketModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -81,7 +82,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
+    <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="MarketModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Id" ColumnName="Id" />

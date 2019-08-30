@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="AboutU">
+  <EntityType Name="AboutUs">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -8,7 +8,7 @@
     <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AboutImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Iconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="İconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>
@@ -18,7 +18,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="Brand">
+  <EntityType Name="Brands">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -44,18 +44,10 @@
     <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Discount_price" Type="Double" Nullable="false" />
-    <Property Name="iconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="amount" Type="Double" Nullable="false" />
+    <Property Name="İconimg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="ProductOptions" Relationship="Self.FK_ProductOptions_Product" FromRole="Product" ToRole="ProductOptions" />
-  </EntityType>
-  <EntityType Name="ProductOption">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_ProductOptions_Product" FromRole="ProductOptions" ToRole="Product" />
+    <NavigationProperty Name="SubCategory" Relationship="Self.FK_SubCategory_Product" FromRole="Product" ToRole="SubCategory" />
   </EntityType>
   <EntityType Name="Slideimg">
     <Key>
@@ -64,7 +56,16 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Slide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="sysdiagram">
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="İd" />
+    </Key>
+    <Property Name="İd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="productİd" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_SubCategory_Product" FromRole="SubCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
@@ -83,31 +84,31 @@
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <Association Name="FK_ProductOptions_Product">
+  <Association Name="FK_SubCategory_Product">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="ProductOptions" Type="Self.ProductOption" Multiplicity="*" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ProductOptions">
-        <PropertyRef Name="ProductId" />
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="productİd" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MarketEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AboutUs" EntityType="Self.AboutU" />
-    <EntitySet Name="Admins" EntityType="Self.Admin" />
-    <EntitySet Name="Brands" EntityType="Self.Brand" />
-    <EntitySet Name="Contacts" EntityType="Self.Contact" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="ProductOptions" EntityType="Self.ProductOption" />
-    <EntitySet Name="Slideimgs" EntityType="Self.Slideimg" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK_ProductOptions_Product" Association="Self.FK_ProductOptions_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="ProductOptions" EntitySet="ProductOptions" />
+  <EntityContainer Name="MarketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AboutUs" EntityType="Self.AboutUs" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Brands" EntityType="Self.Brands" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Slideimg" EntityType="Self.Slideimg" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_SubCategory_Product" Association="Self.FK_SubCategory_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

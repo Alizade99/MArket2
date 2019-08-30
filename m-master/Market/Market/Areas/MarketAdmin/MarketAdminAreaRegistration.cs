@@ -11,13 +11,12 @@ namespace Market.Areas.MarketAdmin
                 return "MarketAdmin";
             }
         }
-
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
                 "MarketAdmin_default",
                 "MarketAdmin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional },
+                new { controller="home" ,action = "Index", id = UrlParameter.Optional },
                 new string[] { "Market.Areas.MarketAdmin.Controllers"}
             );
         }

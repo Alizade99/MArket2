@@ -1,161 +1,167 @@
-﻿@using Market.Models
+﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/MarketAdmin/Views/Shared/_LayoutAdmin.cshtml";
 }
-@{Product pro = ViewBag.Product}
-<div class="market">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <h4 style="    margin-top: 70px;">Marketlere gore endirim:</h4>
-                <ul style="margin-bottom: 50px;" class="brands">
-                    <li> <a href="#">  <img src="Fhoto/bravo.png"><br></a></li>
-                    <li> <a href="#"><img src="Fhoto/Bazar-Store.jpg"><br></a></li>
-                    <li> <a href="#"><img src="Fhoto/grandmart.jpg"><br></a></li>
-                    <li>  <a href="#"><img src="Fhoto/araz.jpg"></a></li>
-                    <li> <a href="#"><img src="Fhoto/rahat.png"></a></li>
-                    <li><a href="#"><img src="Fhoto/neptun.png"></a></li>
-                </ul>
-                <button style="margin-left: 50px" class="prebtn ">Prev</button>
-                <button class="nextbtn">Next</button>
-            </div>
 
-            <div class="col-md-9">
-                <div class="food">
-                    <h5 style="    margin-left: 300px;
-                            font-size: 30px;">
-                        Endirimler
-                    </h5>
-                    <tr>
-                        <div class="row">
-                            <div class="col-md-3 ">
-                                <div class="item">
-                                    <h5 style="margin-left: 25px;  margin-top: 5px;"><dfn class="ml-4">Quvvededir:</dfn></h5><p style="margin-left: 70px;">@pro.Date</p>
-                                    <img src="Fhoto/endirim.png" style="width: 40px;height:40px;position: absolute;
-                            margin-left: 165px;margin-top: -73px;">
-                                    <div class="eye-icon">
-                                        <a href="food.html"> <i class="far fa-eye  fa-2x"></i></a>
-                                    </div>
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
 
-                                    <td><img src="Fhoto/food1.jpg"></td>
-                                    <h5>@pro.Name</h5>
-                                    <div class="row">
-                                        <span class="mr-2"><del style="color: grey;font-size: 18px; font-weight: 200;">@pro.Price</del></span>
-                                        <span style=" color: #ff5c00; font-size: 18px;font-weight: 500;">@pro.Discount_price</span>
-                                    </div>
-                                    <div class="eyecontent ml-4 mt-4">
-                                        <a href="#"><span class="mr-4">Sifaris et</span><i class="fas fa-heart fa-2x" style="font-size: 30px;"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 ">
-                                <div class="item">
-                                    <h5 style="margin-left: 25px;  margin-top: 5px;"><dfn>Quvvededir:</dfn></h5><p style="    margin-left: 70px;">19.09.19</p>
-                                    <img src="Fhoto/endirim.png" style="width: 40px;height:40px;position: absolute;
-                                margin-left: 165px;margin-top: -73px;">
-                                    <div class="eye">
-                                        <i class="far fa-eye eye-icon fa-2x"></i>
-                                    </div>
 
-                                    <td><img src="Fhoto/food1.jpg"></td>
-                                    <h5>Nutella</h5>
-                                    <div class="row">
-                                        <span class="mr-2"><del>5.20</del></span>
-                                        <span>4.90</span>
-                                    </div>
-                                    <div class="eyecontent ml-2">
-                                        <a href="#"><span class="mr-5">Sifaris et</span><i class="fas fa-heart fa-2x"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 ">
-                                <div class="item">
-                                    <h5 style="margin-left: 25px;  margin-top: 5px;"><dfn>Quvvededir:</dfn></h5><p style="    margin-left: 70px;">19.09.19</p>
-                                    <img src="Fhoto/endirim.png" style="width: 40px;height:40px;position: absolute;
-                                    margin-left: 165px;margin-top: -73px;">
-                                    <div class="eye">
-                                        <i class="far fa-eye eye-icon fa-2x"></i>
-                                    </div>
 
-                                    <td><img src="Fhoto/food1.jpg"></td>
-                                    <h5>Nutella</h5>
-                                    <div class="row">
-                                        <span class="mr-2"><del>5.20</del></span>
-                                        <span>4.90</span>
-                                    </div>
-                                    <div class="eyecontent ml-2">
-                                        <a href="#"><span class="mr-5">Sifaris et</span><i class="fas fa-heart fa-2x"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 ">
-                                <div class="item">
-                                    <h5 style="margin-left: 25px;  margin-top: 5px;"><dfn>Quvvededir:</dfn></h5><p style="    margin-left: 70px;">19.09.19</p>
-                                    <img src="Fhoto/endirim.png" style="width: 40px;height:40px;position: absolute;
-                                        margin-left: 165px;margin-top: -73px;">
-                                    <div class="eye">
-                                        <i class="far fa-eye eye-icon fa-2x"></i>
-                                    </div>
-
-                                    <td><img src="Fhoto/food1.jpg"></td>
-                                    <h5>Nutella</h5>
-                                    <div class="row">
-                                        <span class="mr-2"><del>5.20</del></span>
-                                        <span>4.90</span>
-                                    </div>
-                                    <div class="eyecontent ml-2">
-                                        <a href="#"><span class="mr-5">Sifaris et</span><i class="fas fa-heart fa-2x"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">C3 Charts </h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Charts</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">C3 Charts</li>
+                                </ol>
+                            </nav>
                         </div>
-
+                    </div>
                 </div>
             </div>
 
 
-            </tr>
+
+            <div class="row">
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Area Chart</h5>
+                        <div class="card-body">
+                            <div id="c3chart_area"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Spline Chart</h5>
+                        <div class="card-body">
+                            <div id="c3chart_spline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Zoom Chart</h5>
+                        <div class="card-body">
+                            <div id="c3chart_zoom"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Scatter Plot</h5>
+                        <div class="card-body">
+                            <div id="c3chart_scatter"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Stacked Bar </h5>
+                        <div class="card-body">
+                            <div id="c3chart_stacked"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Combination Chart </h5>
+                        <div class="card-body">
+                            <div id="c3chart_combine"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="row">
+
+
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Pie Chart </h5>
+                        <div class="card-body">
+                            <div id="c3chart_pie"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Donut Chart </h5>
+                        <div class="card-body">
+                            <div id="c3chart_donut"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Donut Guage </h5>
+                        <div class="card-body">
+                            <div id="c3chart_gauge"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
         </div>
-    </div>
-</div></div></div>
-
-
-
-
-
-
-
-
-
-
-<section id="brands">
-    <div class="container mt-5">
-        <h2 style="padding-left: 470px">Marketler</h2>
-
-    </div>
-    <div class="container-fluid slide-bord  mb-5 ">
-        <hr>
-        <div class="owl-carousel owl-theme">
-            <div class="magaza pl-5" style="width: 180px">
-                <img class="img-responsive" src="Fhoto/bravo.png">
-            </div>
-            <div class="magaza pl-5" style="width: 180px">
-                <img class="img-responsive" src="Fhoto/grandmart.jpg">
-            </div>
-            <div class="magaza pl-5" style="width: 180px">
-                <img class="img-responsive" src="Fhoto/araz.jpg">
-            </div>
-            <div class="magaza pl-5" style="width: 180px">
-                <img class="img-responsive" src="Fhoto/neptun.png">
-            </div>
-            <div class="magaza pl-5" style="width: 180px">
-                <img class="img-responsive" src="Fhoto/rahat.png">
-            </div>
-            <div class="magaza pl-5" style="width: 180px">
-                <img class="img-responsive" src="Fhoto/Bazar-Store.jpg">
-            </div>
-        </div>
-    </div>
-</section>
-
 

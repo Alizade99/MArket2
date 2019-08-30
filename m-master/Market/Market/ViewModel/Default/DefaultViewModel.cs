@@ -14,6 +14,6 @@ namespace Market.Views.ViewModel.Default
         public List<Product> Products;
         public List<Brand> Brands;
         public List<Slideimg> SlideImg;
-        public List<ProductOption> ProductOptions;
+        public List<SubCategory> ProductOptions;
     }
 }
